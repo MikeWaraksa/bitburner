@@ -1526,9 +1526,11 @@ Bladeburner.prototype.randomEvent = function() {
         throw new Error("sourceCity was not a City object in Bladeburner.randomEvent()");
     }
 
-    var destCityName = CityNames[getRandomInt(0, 5)];
-    while (destCityName === sourceCityName) {
-        destCityName = CityNames[getRandomInt(0, 5)];
+    // eliminate the loops.
+    var randCity = getRandomInt(0, 4);
+    var destCityName = CityNames[randCity;
+    if (destCityName === sourceCityName) {
+        destCityName = CityNames[randCity + 1];
     }
     var destCity = this.cities[destCityName];
 
@@ -1612,9 +1614,10 @@ Bladeburner.prototype.triggerPotentialMigration = function(sourceCityName, chanc
 }
 
 Bladeburner.prototype.triggerMigration = function(sourceCityName) {
-    var destCityName = CityNames[getRandomInt(0, 5)];
-    while (destCityName === sourceCityName) {
-        destCityName = CityNames[getRandomInt(0, 5)];
+    var rand = getRandomInt(0, 4);
+    var destCityName = CityNames[rand];
+    if (destCityName === sourceCityName) {
+        destCityName = CityNames[rand + 1];
     }
     var destCity    = this.cities[destCityName];
     var sourceCity  = this.cities[sourceCityName];
